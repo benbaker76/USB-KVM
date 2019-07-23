@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E223538F22B6E057008FECEB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E223538E22B6E057008FECEB /* IOKit.framework */; };
+		E223539522B6E12D008FECEB /* HIDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E223539322B6E12D008FECEB /* HIDCommand.m */; };
+		E223539822B6E137008FECEB /* KVMController.m in Sources */ = {isa = PBXBuildFile; fileRef = E223539622B6E137008FECEB /* KVMController.m */; };
+		E223539B22B6EDB1008FECEB /* P_HIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E223539A22B6EDB1008FECEB /* P_HIDManager.m */; };
+		E22F77A222B9593900F7B6E0 /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F77A122B9593900F7B6E0 /* StatusItemView.m */; };
+		E28652E022B6D2E600D42BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E28652DF22B6D2E600D42BFB /* Assets.xcassets */; };
+		E28652E322B6D2E600D42BFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28652E122B6D2E600D42BFB /* MainMenu.xib */; };
+		E28652E622B6D2E600D42BFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E28652E522B6D2E600D42BFB /* main.m */; };
+		E2D72F9B22B6EE800034ACD9 /* P_HIDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D72F9A22B6EE800034ACD9 /* P_HIDCommand.m */; };
+		E2D72FA922B6EFD10034ACD9 /* LaunchOnStartup.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D72F9E22B6EFD10034ACD9 /* LaunchOnStartup.m */; };
+		E2D72FAF22B7676A0034ACD9 /* HID_Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D72FAE22B767690034ACD9 /* HID_Utilities.m */; };
+		E2D72FB222B7691B0034ACD9 /* HIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D72FB022B7691B0034ACD9 /* HIDManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E223538E22B6E057008FECEB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		E223539322B6E12D008FECEB /* HIDCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIDCommand.m; sourceTree = "<group>"; };
+		E223539422B6E12D008FECEB /* HIDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDCommand.h; sourceTree = "<group>"; };
+		E223539622B6E137008FECEB /* KVMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVMController.m; sourceTree = "<group>"; };
+		E223539722B6E137008FECEB /* KVMController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVMController.h; sourceTree = "<group>"; };
+		E223539922B6E9D3008FECEB /* HID_Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HID_Utilities.h; sourceTree = "<group>"; };
+		E223539A22B6EDB1008FECEB /* P_HIDManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = P_HIDManager.m; sourceTree = "<group>"; };
+		E223539C22B6EDBD008FECEB /* P_HIDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P_HIDManager.h; sourceTree = "<group>"; };
+		E22F77A022B9593900F7B6E0 /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
+		E22F77A122B9593900F7B6E0 /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
+		E22F77A322B95EE800F7B6E0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E28652D922B6D2E500D42BFB /* USB KVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USB KVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28652DF22B6D2E600D42BFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E28652E222B6D2E600D42BFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E28652E422B6D2E600D42BFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28652E522B6D2E600D42BFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2D72F9922B6EE800034ACD9 /* P_HIDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P_HIDCommand.h; sourceTree = "<group>"; };
+		E2D72F9A22B6EE800034ACD9 /* P_HIDCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P_HIDCommand.m; sourceTree = "<group>"; };
+		E2D72F9E22B6EFD10034ACD9 /* LaunchOnStartup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchOnStartup.m; sourceTree = "<group>"; };
+		E2D72FA722B6EFD10034ACD9 /* LaunchOnStartup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchOnStartup.h; sourceTree = "<group>"; };
+		E2D72FAE22B767690034ACD9 /* HID_Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HID_Utilities.m; sourceTree = "<group>"; };
+		E2D72FB022B7691B0034ACD9 /* HIDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIDManager.m; sourceTree = "<group>"; };
+		E2D72FB122B7691B0034ACD9 /* HIDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDManager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E28652D622B6D2E500D42BFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E223538F22B6E057008FECEB /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E223538422B6E039008FECEB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = "USB KVM/Resources";
+			sourceTree = "<group>";
+		};
+		E223538D22B6E057008FECEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E22F77A322B95EE800F7B6E0 /* AppKit.framework */,
+				E223538E22B6E057008FECEB /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E28652D022B6D2E500D42BFB = {
+			isa = PBXGroup;
+			children = (
+				E223538422B6E039008FECEB /* Resources */,
+				E28652DB22B6D2E500D42BFB /* USB KVM */,
+				E28652DA22B6D2E500D42BFB /* Products */,
+				E223538D22B6E057008FECEB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E28652DA22B6D2E500D42BFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E28652D922B6D2E500D42BFB /* USB KVM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E28652DB22B6D2E500D42BFB /* USB KVM */ = {
+			isa = PBXGroup;
+			children = (
+				E28652DF22B6D2E600D42BFB /* Assets.xcassets */,
+				E223539922B6E9D3008FECEB /* HID_Utilities.h */,
+				E2D72FAE22B767690034ACD9 /* HID_Utilities.m */,
+				E223539422B6E12D008FECEB /* HIDCommand.h */,
+				E223539322B6E12D008FECEB /* HIDCommand.m */,
+				E2D72FB122B7691B0034ACD9 /* HIDManager.h */,
+				E2D72FB022B7691B0034ACD9 /* HIDManager.m */,
+				E28652E422B6D2E600D42BFB /* Info.plist */,
+				E223539722B6E137008FECEB /* KVMController.h */,
+				E223539622B6E137008FECEB /* KVMController.m */,
+				E2D72FA722B6EFD10034ACD9 /* LaunchOnStartup.h */,
+				E2D72F9E22B6EFD10034ACD9 /* LaunchOnStartup.m */,
+				E28652E522B6D2E600D42BFB /* main.m */,
+				E28652E122B6D2E600D42BFB /* MainMenu.xib */,
+				E2D72F9922B6EE800034ACD9 /* P_HIDCommand.h */,
+				E2D72F9A22B6EE800034ACD9 /* P_HIDCommand.m */,
+				E223539C22B6EDBD008FECEB /* P_HIDManager.h */,
+				E223539A22B6EDB1008FECEB /* P_HIDManager.m */,
+				E22F77A022B9593900F7B6E0 /* StatusItemView.h */,
+				E22F77A122B9593900F7B6E0 /* StatusItemView.m */,
+			);
+			path = "USB KVM";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E28652D822B6D2E500D42BFB /* USB KVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28652EA22B6D2E600D42BFB /* Build configuration list for PBXNativeTarget "USB KVM" */;
+			buildPhases = (
+				E28652D522B6D2E500D42BFB /* Sources */,
+				E28652D622B6D2E500D42BFB /* Frameworks */,
+				E28652D722B6D2E500D42BFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "USB KVM";
+			productName = "USB KVM";
+			productReference = E28652D922B6D2E500D42BFB /* USB KVM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E28652D122B6D2E500D42BFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Ben Baker";
+				TargetAttributes = {
+					E28652D822B6D2E500D42BFB = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = E28652D422B6D2E500D42BFB /* Build configuration list for PBXProject "USB KVM" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E28652D022B6D2E500D42BFB;
+			productRefGroup = E28652DA22B6D2E500D42BFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E28652D822B6D2E500D42BFB /* USB KVM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E28652D722B6D2E500D42BFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28652E022B6D2E600D42BFB /* Assets.xcassets in Resources */,
+				E28652E322B6D2E600D42BFB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E28652D522B6D2E500D42BFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E22F77A222B9593900F7B6E0 /* StatusItemView.m in Sources */,
+				E2D72F9B22B6EE800034ACD9 /* P_HIDCommand.m in Sources */,
+				E223539B22B6EDB1008FECEB /* P_HIDManager.m in Sources */,
+				E223539822B6E137008FECEB /* KVMController.m in Sources */,
+				E223539522B6E12D008FECEB /* HIDCommand.m in Sources */,
+				E28652E622B6D2E600D42BFB /* main.m in Sources */,
+				E2D72FB222B7691B0034ACD9 /* HIDManager.m in Sources */,
+				E2D72FA922B6EFD10034ACD9 /* LaunchOnStartup.m in Sources */,
+				E2D72FAF22B7676A0034ACD9 /* HID_Utilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E28652E122B6D2E600D42BFB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E28652E222B6D2E600D42BFB /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E28652E822B6D2E600D42BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E28652E922B6D2E600D42BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E28652EB22B6D2E600D42BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				INFOPLIST_FILE = "USB KVM/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Headsoft.USB-KVM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		E28652EC22B6D2E600D42BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				INFOPLIST_FILE = "USB KVM/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Headsoft.USB-KVM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E28652D422B6D2E500D42BFB /* Build configuration list for PBXProject "USB KVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28652E822B6D2E600D42BFB /* Debug */,
+				E28652E922B6D2E600D42BFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28652EA22B6D2E600D42BFB /* Build configuration list for PBXNativeTarget "USB KVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28652EB22B6D2E600D42BFB /* Debug */,
+				E28652EC22B6D2E600D42BFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E28652D122B6D2E500D42BFB /* Project object */;
+}
