@@ -253,7 +253,7 @@ void showContextMenu(int x, int y) {
                   MF_STRING | (runAtStartupEnabled() ? MF_CHECKED : MF_UNCHECKED),
                   IDM_RUN_AT_STARTUP, L"Start with &Windows");
     ::AppendMenuW(menu, MF_SEPARATOR, 0, nullptr);
-    ::AppendMenuW(menu, MF_STRING, IDM_ABOUT, L"A&bout…");
+    ::AppendMenuW(menu, MF_STRING, IDM_ABOUT, L"A&bout...");
     ::AppendMenuW(menu, MF_STRING, IDM_EXIT,  L"E&xit");
 
     ::SetMenuDefaultItem(menu, IDM_SWITCH_ALL, FALSE);
