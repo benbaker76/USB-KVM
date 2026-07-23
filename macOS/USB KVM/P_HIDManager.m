@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/message.h>
 #import "P_HIDManager.h"
 
 @implementation P_HIDManager

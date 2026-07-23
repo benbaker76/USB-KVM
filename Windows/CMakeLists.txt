@@ -38,6 +38,11 @@ if(MINGW)
         -municode -static -static-libgcc -static-libstdc++ -mwindows)
 elseif(MSVC)
     target_compile_options(USBKVM PRIVATE /W4)
+    # app.rc already embeds our application manifest (RT_MANIFEST, id 1). MSVC's
+    # linker also emits one by default, so the two collide as a duplicate
+    # resource (CVT1100 -> LNK1123). Suppress the linker-generated one; ours,
+    # which the MinGW build also uses, stays the single source.
+    target_link_options(USBKVM PRIVATE /MANIFEST:NO)
 endif()
 
 install(TARGETS USBKVM RUNTIME DESTINATION .)
