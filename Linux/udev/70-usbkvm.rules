@@ -1,0 +1,31 @@
+# ActionStar / StarTech USB KVM switches.
+#
+# Grants the logged-in local user access to the vendor-defined HID interface
+# (usage page 0xFF01, report ID 3) used to issue switch commands.
+#
+# This file MUST sort before 73-seat-late.rules, which is where systemd matches
+# TAG=="uaccess" and runs the builtin that applies the ACL. A rule numbered
+# above 73 sets the tag too late to have any effect.
+#
+# Install:
+#   sudo cp 70-usbkvm.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules
+#   sudo udevadm trigger --action=add --subsystem-match=hidraw
+
+ACTION=="remove", GOTO="usbkvm_end"
+SUBSYSTEM!="hidraw", GOTO="usbkvm_end"
+
+# systemd/logind: hand the device to whoever is on the active local seat.
+# The plugdev group is a fallback for systems without logind.
+ATTRS{idVendor}=="0835", ATTRS{idProduct}=="1403", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="0835", ATTRS{idProduct}=="1404", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="0835", ATTRS{idProduct}=="1406", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="0835", ATTRS{idProduct}=="1407", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="0835", ATTRS{idProduct}=="1411", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="2101", ATTRS{idProduct}=="1403", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="2101", ATTRS{idProduct}=="1404", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="2101", ATTRS{idProduct}=="1406", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="2101", ATTRS{idProduct}=="1407", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+ATTRS{idVendor}=="2101", ATTRS{idProduct}=="1411", TAG+="uaccess", GROUP="plugdev", MODE="0660"
+
+LABEL="usbkvm_end"

@@ -1,0 +1,7 @@
+{
+  "uuid": "usbkvm@benbaker76.github.io",
+  "name": "USB KVM",
+  "description": "Top bar control for ActionStar-chip USB KVM switches. Click the icon to switch video, USB and audio to the next port; use the menu for individual commands. Requires the kvmctl helper and the 70-usbkvm.rules udev rule.",
+  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "url": "https://github.com/benbaker76"
+}

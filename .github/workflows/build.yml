@@ -1,0 +1,156 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  linux:
+    name: Linux (kvmctl + GNOME extension)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S Linux -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build -j"$(nproc)"
+
+      - name: Smoke test
+        # No KVM is attached to a CI runner, so "no device" is the expected
+        # result: kvmctl exits 1 for that. Anything above 1 means it crashed or
+        # failed for a different reason, which is a real failure.
+        run: |
+          set +e
+          ./build/kvmctl list
+          status=$?
+          output=$(./build/kvmctl --json status)
+          json_status=$?
+          set -e
+
+          echo "list exited $status; status exited $json_status: $output"
+
+          if [ "$status" -gt 1 ] || [ "$json_status" -gt 1 ]; then
+            echo "unexpected exit status"
+            exit 1
+          fi
+
+          echo "$output" | grep -q '"present":false'
+
+      - name: Package
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          STAGE="usbkvm-linux"
+          mkdir -p "$STAGE/gnome-extension"
+          cp build/kvmctl "$STAGE/"
+          cp Linux/udev/70-usbkvm.rules "$STAGE/"
+          cp Linux/install.sh "$STAGE/"
+          cp -r Linux/gnome-extension/. "$STAGE/gnome-extension/"
+          cp README.md "$STAGE/"
+          tar -czf "usbkvm-linux-x86_64.tar.gz" "$STAGE"
+
+      - name: Package GNOME extension
+        # Shell-installable zip: gnome-extensions install usbkvm-gnome-extension.zip
+        run: |
+          cd Linux/gnome-extension
+          zip -r "$GITHUB_WORKSPACE/usbkvm-gnome-extension.zip" . -x '*.git*'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: |
+            usbkvm-linux-x86_64.tar.gz
+            usbkvm-gnome-extension.zip
+
+  windows:
+    name: Windows (tray app)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S Windows -B build -A x64
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Stage
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp build/Release/USBKVM.exe dist/
+          cp README.md dist/
+
+      - name: Package
+        shell: bash
+        run: |
+          cd dist && 7z a ../usbkvm-windows-x64.zip .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: usbkvm-windows-x64.zip
+
+  macos:
+    name: macOS (menu bar app)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        # The project still declares a 10.8 deployment target, which current
+        # Xcode refuses; override it here rather than editing the project.
+        # Code signing is disabled: CI has no Developer ID certificate.
+        run: |
+          xcodebuild \
+            -project "macOS/USB KVM.xcodeproj" \
+            -scheme "USB KVM" \
+            -configuration Release \
+            -derivedDataPath build \
+            MACOSX_DEPLOYMENT_TARGET=10.13 \
+            ARCHS="x86_64 arm64" \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGN_IDENTITY="" \
+            build
+
+      - name: Package
+        run: |
+          APP="build/Build/Products/Release/USB KVM.app"
+          test -d "$APP" || { echo "app not found at $APP"; ls -R build/Build/Products; exit 1; }
+          ditto -c -k --keepParent "$APP" usbkvm-macos.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos
+          path: usbkvm-macos.zip
+
+  release:
+    name: Publish release
+    needs: [linux, windows, macos]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Collect
+        run: find artifacts -type f -exec mv {} . \;
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          files: |
+            usbkvm-linux-x86_64.tar.gz
+            usbkvm-gnome-extension.zip
+            usbkvm-windows-x64.zip
+            usbkvm-macos.zip

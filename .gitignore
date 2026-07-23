@@ -1,1 +1,19 @@
 .DS_Store
+
+# Build output
+build/
+build-win/
+dist/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Xcode per-user state
+xcuserdata/
+*.xcuserstate
+
+# Python
+__pycache__/

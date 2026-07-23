@@ -1,0 +1,43 @@
+// app.rc — icons, manifest and version information.
+
+#include <windows.h>
+
+#include "../src/resource.h"
+
+// The lowest-numbered icon becomes the executable's shell icon, so the
+// full-colour app icon must come first.
+IDI_APP            ICON  "usbkvm-app.ico"
+IDI_TRAY_DARK      ICON  "usbkvm-dark.ico"
+IDI_TRAY_LIGHT     ICON  "usbkvm-light.ico"
+IDI_TRAY_DARK_OFF  ICON  "usbkvm-dark-off.ico"
+IDI_TRAY_LIGHT_OFF ICON  "usbkvm-light-off.ico"
+
+// RT_MANIFEST = 24, CREATEPROCESS_MANIFEST_RESOURCE_ID = 1.
+1 24 "app.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+  FILEVERSION     2,0,0,0
+  PRODUCTVERSION  2,0,0,0
+  FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+  FILEFLAGS       0
+  FILEOS          VOS_NT_WINDOWS32
+  FILETYPE        VFT_APP
+  FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904B0"
+    BEGIN
+      VALUE "FileDescription", "USB KVM tray control"
+      VALUE "FileVersion",     "2.0.0.0"
+      VALUE "InternalName",    "USBKVM"
+      VALUE "OriginalFilename","USBKVM.exe"
+      VALUE "ProductName",     "USB KVM"
+      VALUE "ProductVersion",  "2.0.0.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1200
+  END
+END
