@@ -135,22 +135,55 @@ jobs:
   release:
     name: Publish release
     needs: [linux, windows, macos]
-    if: startsWith(github.ref, 'refs/tags/v')
+    # Master pushes refresh the rolling "latest" prerelease; version tags cut a
+    # proper draft release. Pull requests never publish (their token is
+    # read-only in any case).
+    if: >-
+      github.event_name == 'push' &&
+      (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
 
       - name: Collect
+        # download-artifact lays each artifact out under its own subdirectory;
+        # flatten so the release commands can reference files by name.
         run: find artifacts -type f -exec mv {} . \;
 
-      - uses: softprops/action-gh-release@v2
-        with:
-          draft: true
-          generate_release_notes: true
-          files: |
-            usbkvm-linux-x86_64.tar.gz
-            usbkvm-gnome-extension.zip
-            usbkvm-windows-x64.zip
+      - name: Publish tagged release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The tag already exists (it triggered this run), so create a release
+          # against it as a draft for you to review and publish.
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --generate-notes \
+            --draft \
+            usbkvm-linux-x86_64.tar.gz \
+            usbkvm-gnome-extension.zip \
+            usbkvm-windows-x64.zip \
+            usbkvm-macos.zip
+
+      - name: Update rolling "latest" prerelease
+        if: github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Delete the previous rolling release and its tag so "latest" always
+          # points at the newest master build, then recreate it fresh.
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest \
+            --title "Latest build" \
+            --notes "Automatically built from the latest commit on master (\`${GITHUB_SHA}\`). For tested releases, see the tagged versions." \
+            --prerelease \
+            --target "${GITHUB_SHA}" \
+            usbkvm-linux-x86_64.tar.gz \
+            usbkvm-gnome-extension.zip \
+            usbkvm-windows-x64.zip \
             usbkvm-macos.zip
