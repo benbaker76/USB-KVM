@@ -38,8 +38,13 @@
 	m_reportIn[2] = result >> 8;
 	
 	if ([target respondsToSelector:m_keyNotification.selector])
-		objc_msgSend(m_keyNotification.target, m_keyNotification.selector, m_keyNotification.object, m_reportIn);
-	
+		// objc_msgSend must be cast to the callee's signature under modern
+		// SDKs (it is declared as taking no arguments otherwise). The selector
+		// is hidKeyNotification:key: — (id sender, char *key).
+		((void (*)(id, SEL, id, char *))objc_msgSend)(
+			m_keyNotification.target, m_keyNotification.selector,
+			m_keyNotification.object, m_reportIn);
+
 	return retValue;
 }
 
@@ -75,7 +80,12 @@
 		}
 		
 		if (i && [m_keyNotification.target respondsToSelector:m_keyNotification.selector])
-			objc_msgSend(m_keyNotification.target, m_keyNotification.selector, m_keyNotification.object, m_reportIn);
+			// objc_msgSend must be cast to the callee's signature under modern
+			// SDKs (it is declared as taking no arguments otherwise). The
+			// selector is hidKeyNotification:key: — (id sender, char *key).
+			((void (*)(id, SEL, id, char *))objc_msgSend)(
+				m_keyNotification.target, m_keyNotification.selector,
+				m_keyNotification.object, m_reportIn);
 	}
 }
 

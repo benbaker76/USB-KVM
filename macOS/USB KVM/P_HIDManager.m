@@ -181,7 +181,13 @@
 			[m_removedDeviceRefQueue removeAllObjects];
 		}
 		
-		objc_msgSend(m_deviceNotification.target, m_deviceNotification.selector, m_deviceNotification.object, deviceArray, message);
+		// objc_msgSend must be cast to the callee's signature under modern SDKs
+		// (it is declared as taking no arguments otherwise). The selector is
+		// deviceNotification:deviceRefArray:message: —
+		// (id sender, NSMutableArray *deviceRefArray, uint8_t message).
+		((void (*)(id, SEL, id, id, uint8_t))objc_msgSend)(
+			m_deviceNotification.target, m_deviceNotification.selector,
+			m_deviceNotification.object, deviceArray, message);
 	}
 }
 
